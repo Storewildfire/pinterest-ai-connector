@@ -1,0 +1,25 @@
+# Environment and secrets
+.env
+.env.*
+*.env
+secrets.json
+credentials.json
+config.json
+*.pem
+*.key
+*.token
+
+# Local storage and cache
+cache/
+data/
+*.sqlite
+*.db
+
+# Node / Python / OS artifacts
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+dist/
+build/

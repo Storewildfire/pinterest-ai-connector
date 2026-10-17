@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Pinterest AI Connector</title>
+  <meta name="description" content="Privacy policy for the personal Pinterest AI Connector (MCP), describing data handling, OAuth security, and third-party AI processing.">
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #e60023;
+      --accent: #38bdf8;
+      --code-bg: #090d16;
+      --radius: 12px;
+      --max-width: 860px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    header {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 3rem 0 2rem 0;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .back-link {
+      display: inline-block;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 2.5rem auto 0 auto;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      border-left: 3px solid var(--primary);
+      padding-left: 0.75rem;
+    }
+
+    p, li {
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+    }
+
+    ul, ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    li strong {
+      color: var(--text-main);
+    }
+
+    code {
+      background: var(--code-bg);
+      border: 1px solid var(--card-border);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+      color: #e2e8f0;
+    }
+
+    .notice-box {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      color: #bae6fd;
+    }
+
+    .notice-box strong {
+      color: #ffffff;
+    }
+
+    footer {
+      max-width: var(--max-width);
+      margin: 4rem auto 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="back-link">&larr; Back to Overview</a>
+    <h1>Privacy Policy</h1>
+    <div class="meta">Effective Date: October 17, 2026 &bull; Application: Pinterest AI Connector (Personal MCP Server)</div>
+  </header>
+
+  <main>
+    <div class="notice-box">
+      <strong>Scope of this Application:</strong> This software is a personal, open-source AI connector built using the Model Context Protocol (MCP). It is operated exclusively by the individual account owner (Storewildfire) to interact with their own personal Pinterest account data. It is not offered as a commercial service or public multi-tenant software-as-a-service (SaaS).
+    </div>
+
+    <section>
+      <h2>1. Overview and Architecture</h2>
+      <p>
+        The <strong>Pinterest AI Connector</strong> is a client-side integration tool that bridges local AI desktop clients (such as Claude Desktop or custom AI agents) with Pinterest's official API. All core interactions are local-first: API requests are initiated from the user's local computing environment directly to Pinterest’s REST endpoints.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Data Accessed via the Pinterest API</h2>
+      <p>The connector accesses only the data explicitly authorized by the account owner through standard OAuth 2.0 permission scopes:</p>
+      <ul>
+        <li><strong>Account Profile Information:</strong> Basic public profile details (e.g., username, profile image URL) accessed via <code>user_accounts:read</code>.</li>
+        <li><strong>Board Information:</strong> Titles, descriptions, privacy state, and pin counts of the user's personal boards accessed via <code>boards:read</code>.</li>
+        <li><strong>Pin Data:</strong> Pin descriptions, image URLs, original URLs, and board associations accessed via <code>pins:read</code>.</li>
+      </ul>
+      <p>
+        The connector <strong>never</strong> accesses or requests sensitive personal identifiers, billing information, payment methods, or direct private messages.
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Authentication and Token Security</h2>
+      <p>Authentication adheres strictly to the official Pinterest Developer guidelines:</p>
+      <ul>
+        <li><strong>OAuth 2.0 Authorization:</strong> Access is established using standard OAuth 2.0 authorization code flows with PKCE. The user explicitly grants access on Pinterest’s official consent page.</li>
+        <li><strong>Local Storage of Tokens:</strong> Access and refresh tokens are stored locally on the user's personal machine (e.g., in a local configuration file or OS environment variable). Tokens are never sent, synced, or backed up to any central database or third-party web server.</li>
+        <li><strong>Client Secret Protection:</strong> Client credentials and access tokens are strictly excluded from version control systems and are protected using local environment boundaries.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Third-Party AI Processing</h2>
+      <p>
+        When the account owner prompts their AI assistant to analyze, summarize, or organize their Pinterest content:
+      </p>
+      <ul>
+        <li>The specific text metadata of the requested boards or pins (e.g., pin title, description) is transferred into the active context window of the user’s designated AI client (e.g., Anthropic, OpenAI, or local models).</li>
+        <li>Data handling by the AI provider is governed by the respective provider’s terms of service and privacy policies.</li>
+        <li>OAuth credentials, client secrets, and access tokens are strictly sequestered from the prompt context and are never provided to language models.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. Data Retention, Caching, and Telemetry</h2>
+      <ul>
+        <li><strong>No Cloud Storage:</strong> We do not operate a remote database, user analytics service, or telemetry server. No Pinterest data is mirrored or stored on external servers.</li>
+        <li><strong>Transient In-Memory Caching:</strong> API responses are processed in-memory during active sessions to respond to prompts and are discarded upon program termination.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. User Control and Data Deletion</h2>
+      <p>The account owner retains complete control over their Pinterest connection and data:</p>
+      <ul>
+        <li><strong>Revoking Access:</strong> You can instantly revoke this application's API permissions at any time via your Pinterest account settings under <a href="https://www.pinterest.com/settings/apps" target="_blank" rel="noopener" style="color: var(--accent);">Pinterest Apps Settings</a>.</li>
+        <li><strong>Deleting Local Data:</strong> Deleting the local configuration directory or environment variables immediately purges all stored access tokens from the workstation.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Contact Information</h2>
+      <p>
+        If you have any questions regarding this Privacy Policy or wish to exercise data rights regarding this open-source tool, you may reach the maintainer:
+      </p>
+      <p>
+        <strong>Maintainer:</strong> Storewildfire<br>
+        <strong>Repository:</strong> <a href="https://github.com/Storewildfire/pinterest-ai-connector" target="_blank" rel="noopener" style="color: var(--accent);">https://github.com/Storewildfire/pinterest-ai-connector</a><br>
+        <strong>Email:</strong> <span id="contact-email">contact@storewildfire.github.io</span> <!-- Updated upon user confirmation -->
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div>&copy; Storewildfire &bull; Pinterest AI Connector</div>
+    <div><a href="index.html">Overview</a></div>
+  </footer>
+
+</body>
+</html>
